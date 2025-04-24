@@ -1,22 +1,23 @@
 import { useNavigate } from 'react-router-dom';
 import TextForm from './TextForm';
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { WordContext } from '../../context/WordContext';
 
 const TextFormContainer = () => {
 
+    const { setWord } = useContext(WordContext)
     const [inputType, setInputType] = useState('password');
-    const [inputValue, setInputValue] = useState('');
     const navigate = useNavigate();
 
 
     const handleChange = (event) => {
-      setInputValue(event.target.value)
+      setWord(event.target.value)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("form submitted")
-        navigate('/play', {state: inputValue})
+        navigate('/play')
     }
 
     const handleClick = () => {
