@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import MaskedText from '../../components/MaskedText/MaskedText'
 import LetterButtons from '../../components/LetterButtons/LetterButtons'
 import HangMan from '../../components/HangMan/HangMan'
-import { WordContext } from '../../context/WordContext'
 import Button from '../../components/Button/Button'
+import useWordStore from '../../store/WordStore'
 
 const PlayGame = () => {
 
-    const { word , wordList, setWord } = useContext(WordContext)
+    const { word, wordList, setWord } = useWordStore(); // coming from the store
     const [guessedLetter, setGuessedLetter] = useState([]);
     const [step, setStep] = useState(1);
 

@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import TextForm from './TextForm';
-import { useContext, useState } from 'react'
-import { WordContext } from '../../context/WordContext';
+import { useState } from 'react'
+import useWordStore from '../../store/WordStore';
 
 const TextFormContainer = () => {
 
-    const { setWord } = useContext(WordContext)
+    const { setWord } = useWordStore();
     const [inputType, setInputType] = useState('password');
     const navigate = useNavigate();
 
